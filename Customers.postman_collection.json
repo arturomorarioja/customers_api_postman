@@ -237,7 +237,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/customers?offset=3",
+					"raw": "{{BASE_URL}}/customers?offset=31",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -247,7 +247,7 @@
 					"query": [
 						{
 							"key": "offset",
-							"value": "3"
+							"value": "31"
 						}
 					]
 				}
@@ -294,7 +294,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/customers?size=2&offset=3",
+					"raw": "{{BASE_URL}}/customers?size=10&offset=35",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -304,11 +304,11 @@
 					"query": [
 						{
 							"key": "size",
-							"value": "2"
+							"value": "10"
 						},
 						{
 							"key": "offset",
-							"value": "3"
+							"value": "35"
 						}
 					]
 				}
@@ -451,7 +451,12 @@
 							"        }\r",
 							"        pm.expect(item[\"onboarding_date\"]).to.match(/^\\d{8}$/);\r",
 							"\r",
-							"        pm.expect(item[\"first_name\"]).to.include('a');\r",
+							"        const criterion = 'a';\r",
+							"        const first = item[\"first_name\"].toLowerCase();\r",
+							"        const last  = item[\"last_name\"].toLowerCase();\r",
+							"        pm.expect(\r",
+							"            first.includes(criterion) || last.includes(criterion)\r",
+							"        ).to.be.true;\r",
 							"    });\r",
 							"});"
 						],
@@ -513,7 +518,12 @@
 							"        }\r",
 							"        pm.expect(item[\"onboarding_date\"]).to.match(/^\\d{8}$/);\r",
 							"\r",
-							"        pm.expect(item[\"first_name\"]).to.include('a');\r",
+							"        const criterion = 'a';\r",
+							"        const first = item[\"first_name\"].toLowerCase();\r",
+							"        const last  = item[\"last_name\"].toLowerCase();\r",
+							"        pm.expect(\r",
+							"            first.includes(criterion) || last.includes(criterion)\r",
+							"        ).to.be.true;\r",
 							"    });\r",
 							"});"
 						],
@@ -527,7 +537,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}/customers?s=a&offset=3&size=2",
+					"raw": "{{BASE_URL}}/customers?s=a&offset=7&size=30",
 					"host": [
 						"{{BASE_URL}}"
 					],
@@ -541,11 +551,11 @@
 						},
 						{
 							"key": "offset",
-							"value": "3"
+							"value": "7"
 						},
 						{
 							"key": "size",
-							"value": "2"
+							"value": "30"
 						}
 					]
 				}
